@@ -159,13 +159,19 @@ IQ.AnswerCreateView = Ember.View.extend({
         '<label>Answer Content</label>',
         '{{view Ember.TextArea placeholder="title" valueBinding="view.content"}}',
         '<span class="help-block"></span>',
-        '<button class=\'btn\' {{action createAnswer content target="view"}}>Submit</button>',
+        '<button class=\'btn\' {{action createAnswer this target="view"}}>Submit</button>',
       '</fieldset>',
     '</form>'
   ].join('\n')),
 
   // this event is invoked in the {{action createAnswer}}
   createAnswer: function(event) {
-     var answer = IQ.Amswer.createRecord({title: this.get('content')});
+     var quesitonID = this.get('parentView').get('parentView').get('controller').get('content').get('id');
+
+     var id = this.get('controller').createAnswer({
+      content: this.get('content'),
+      dateCreated: new Date().toJSON(),
+      voteCount: 0
+     });
   }
 });
