@@ -65,7 +65,9 @@
     <p>room template {{ controller }}</p>
     <h2>{{ title }}</h2>
     {{#if hasQuestions}}
-    <button class="btn">{{#linkTo 'room.create'}}Create a Question{{/linkTo}}</button>
+    {{ content }}
+    {{ content.id }}
+    <button class="btn">{{#linkTo 'room.create' content}}Create a Question{{/linkTo}}</button>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -97,6 +99,12 @@
     {{ outlet }}
   </script>
 
+  <script type="text/x-handlebars" data-template-name="room/index">
+    <p>room\index template {{ controller }}</p>
+
+    {{ outlet }}
+  </script>
+
   <script type="text/x-handlebars" data-template-name="room/create">
     <p>questions/create template {{ controller }} </p>
     {{view IQ.QuestionCreateView}}
@@ -106,7 +114,30 @@
     <p>question template {{ controller }}</p>
     <h2>{{ id }} {{ title }}</h2>
     <h2>{{ voteCount }} {{ humanDate }}</h2>
-    <p>{{ content }}</p>
+    <p>{{ content.content }}</p>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Question</th>
+          <th>Date</th>
+          <th>Vote Count</th>
+          <th>Join</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each answer in answers}}
+        <tr>
+          <td> {{ answer.id }} </td>
+          <td> {{ answer.humanDate }} </td>
+          <td> {{ answer.voteCount }} </td>
+          <td> {{ answer.content }} </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+    {{ outlet }}
   </script>
 
   <script type="text/x-handlebars" data-template-name="answers">

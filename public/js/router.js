@@ -30,12 +30,12 @@ IQ.ApplicationRoute = Ember.Route.extend({
 
 IQ.IndexRoute = Ember.Route.extend({
   redirect: function() {
-    this.transitionTo('rooms');
+    this.replaceWith('rooms');
   }
 });
 
 IQ.RoomsRoute = Ember.Route.extend({
-  model: function(){
+  model: function() {
     return IQ.Room.find();
   }
 });

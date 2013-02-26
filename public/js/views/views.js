@@ -105,13 +105,11 @@ IQ.RoomCreateView = Ember.View.extend({
     // input validation
 
     // send data to store and store id of created item
-    var x = this.get('controller').createRoom(
-      this.get('title')
-    )
+    var id = this.get('controller').createRoom({
+      title: this.get('title')
+    });
 
-    var route = '/rooms/' + x;
-
-    IQ.Router.router.handleURL(route);
+    IQ.Router.router.handleURL('/rooms/' + id);
   }
 });
 
@@ -127,14 +125,29 @@ IQ.QuestionCreateView = Ember.View.extend({
         '<label>Question Content</label>',
         '{{view Ember.TextArea placeholder="title" valueBinding="view.content"}}',
         '<span class="help-block"></span>',
-        '<button class=\'btn\' {{action createQuestion content target="view"}}>Submit</button>',
+        '<button class=\'btn\' {{action createQuestion this target="view"}}>Submit</button>',
       '</fieldset>',
     '</form>'
   ].join('\n')),
 
   // this event is invoked in the {{action createQuestion}}
-  createQuestion: function(event) {    
-    var question = IQ.Question.createRecord({title: this.get('content')});
+  createQuestion: function(event) { 
+
+    var roomID = this.get('parentView').get('parentView').get('controller').get('content').get('id');
+
+    room = IQ.Room.find('roomID');
+
+    var id = this.get('controller').createQuestion({
+      title: this.get('title'),
+      content: this.get('content'),
+      room: room
+    });
+
+    var route = '/rooms/' + roomID + '/' + id;
+
+    debugger;
+
+    IQ.Router.router.handleURL(route);
   }
 });
 
