@@ -17,26 +17,33 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    <h2>Index</h2>
-
-    <p>This is the initial page.</p>
-    <p>You can transition to the show page</p>
-    {{#linkTo show}}Go to Show{{/linkTo}}
+    index template
   </script>
 
-  <script type="text/x-handlebars" data-template-name="show">
-    <h2>Showing</h2>
-
-    <p>Tildenos: {{tildenos}}</p>
-
-    <ul>
-      {{#each person in controller}}
-        <li>{{person.fullName}} {{{person.company.name}}}</li>
-      {{/each}}
-    </ul>
-
-    {{#linkTo index}}Back to Index{{/linkTo}}
+  <script type="text/x-handlebars" data-template-name="rooms">
+    rooms template
   </script>
+
+  <script type="text/x-handlebars" data-template-name="room">
+    room template
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="questions">
+    questions template
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="question">
+    question template
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="answers">
+    answers template
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="answer">
+    answer template
+  </script>
+
 
   <!-- Le JavaScript Libraries -->
   <script src="assets/jquery/jquery-1.9.1.js"></script>
