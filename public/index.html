@@ -29,8 +29,8 @@
 
   <script type="text/x-handlebars" data-template-name="rooms/index">
     <p>rooms/index template {{ controller }}</p>
-    <h2 >Rooms</h2>
-    <table class="table">
+    <h2>Rooms</h2>
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>#</th>
@@ -66,13 +66,13 @@
     <h2>{{ title }}</h2>
     {{#if hasQuestions}}
     {{#linkTo 'room.create'}}Create Question{{/linkTo}}
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>#</th>
           <th>Question</th>
           <th>Date</th>
-          <th>VoteCount</th>
+          <th>Vote Count</th>
           <th>Join</th>
         </tr>
       </thead>
