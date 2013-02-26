@@ -60,7 +60,7 @@ IQ.NavBarView = Ember.ContainerView.extend({
         '<div class="nav-collapse navbar-responsive-collapse collapse" style="height: 0px;">',
           '<ul class="nav">',
             '<li>{{#linkTo "rooms" }}Rooms{{/linkTo}}</li>',
-            '<li>{{#linkTo "rooms.create" }}Create A Room{{/linkTo}}</li>',
+            '<li>{{#linkTo "rooms.create" }}Create a Room{{/linkTo}}</li>',
           '</ul>',
           '<ul class="nav pull-right">',
               '{{#if IQ.FBUser}}',
