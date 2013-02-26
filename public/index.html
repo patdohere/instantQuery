@@ -22,6 +22,10 @@
 
   <script type="text/x-handlebars" data-template-name="rooms">
     rooms template
+    {{ controller }}
+    {{#each room in controller}}
+      {{ room.id }} HI
+    {{/each}}
     <div>
       {{ outlet }}
     </div>
@@ -29,7 +33,7 @@
 
   <script type="text/x-handlebars" data-template-name="rooms/index">
     rooms/index template
-    {{ outlet }}
+    {{ controller }}
   </script>
 
   <script type="text/x-handlebars" data-template-name="rooms/create">
@@ -39,6 +43,7 @@
 
   <script type="text/x-handlebars" data-template-name="room">
     room template
+    {{ controller }}
   </script>
 
   <script type="text/x-handlebars" data-template-name="questions">
@@ -50,7 +55,6 @@
 
   <script type="text/x-handlebars" data-template-name="questions/index">
     questions/index template
-    {{ outlet }}
   </script>
 
   <script type="text/x-handlebars" data-template-name="questions/create">
@@ -71,7 +75,6 @@
 
   <script type="text/x-handlebars" data-template-name="answers/index">
     answers/index template
-    {{ outlet }}
   </script>
 
   <script type="text/x-handlebars" data-template-name="answers/create">
