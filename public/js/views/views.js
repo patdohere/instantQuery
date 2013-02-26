@@ -93,7 +93,7 @@ IQ.RoomCreateView = Ember.View.extend({
       '<fieldset>',
         '<legend>Create a Room</legend>',
         '<label>Room Title</label>',
-        '{{view Ember.TextField placeholder="title" valueBinding="view.title"}}',
+        '{{view Ember.TextField placeholder="Title" valueBinding="view.title"}}',
         '<span class="help-block">Please use appropriate titles</span>',
         '<button class=\'btn\' {{action createRoom content target="view"}}>Submit</button>',
       '</fieldset>',
@@ -121,9 +121,9 @@ IQ.QuestionCreateView = Ember.View.extend({
       '<fieldset>',
         '<legend>Create Question</legend>',
         '<label>Question Title</label>',
-        '{{view Ember.TextField placeholder="title" valueBinding="view.title"}}',
+        '{{view Ember.TextField placeholder="Title" valueBinding="view.title"}}',
         '<label>Question Content</label>',
-        '{{view Ember.TextArea placeholder="title" valueBinding="view.content"}}',
+        '{{view Ember.TextArea placeholder="Question" valueBinding="view.content"}}',
         '<span class="help-block"></span>',
         '<button class=\'btn\' {{action createQuestion this target="view"}}>Submit</button>',
       '</fieldset>',
@@ -157,7 +157,7 @@ IQ.AnswerCreateView = Ember.View.extend({
       '<fieldset>',
         '<legend>Reply to {Question}</legend>',
         '<label>Answer Content</label>',
-        '{{view Ember.TextArea placeholder="title" valueBinding="view.content"}}',
+        '{{view Ember.TextArea placeholder="Response" valueBinding="view.content"}}',
         '<span class="help-block"></span>',
         '<button class=\'btn\' {{action createAnswer this target="view"}}>Submit</button>',
       '</fieldset>',
@@ -166,12 +166,13 @@ IQ.AnswerCreateView = Ember.View.extend({
 
   // this event is invoked in the {{action createAnswer}}
   createAnswer: function(event) {
-     var quesitonID = this.get('parentView').get('parentView').get('controller').get('content').get('id');
 
-     var id = this.get('controller').createAnswer({
+    var quesitonID = this.get('parentView').get('parentView').get('controller').get('content').get('id');
+
+    var id = this.get('controller').createAnswer({
       content: this.get('content'),
       dateCreated: new Date().toJSON(),
       voteCount: 0
-     });
+    });
   }
 });

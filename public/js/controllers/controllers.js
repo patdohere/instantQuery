@@ -59,6 +59,7 @@ IQ.RoomCreateController = Ember.ObjectController.extend({
 
 IQ.QuestionController = Ember.ObjectController.extend({
   needs: ['question'],
+
   sortProperties: ['voteCount'],
   sortAscending: false,
 

@@ -110,7 +110,6 @@
     <h2>{{ title }}</h2>
     <h2>{{ voteCount }} {{ humanDate }}</h2>
     <p>{{ content.content }}</p>
-
     <table class="table table-hover">
       <thead>
         <tr>
@@ -130,6 +129,7 @@
       </tbody>
     </table>
     {{view IQ.AnswerCreateView}}
+    {{ outlet }}
   </script>
 
   <script type="text/x-handlebars" data-template-name="quesiton/index">
