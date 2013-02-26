@@ -48,20 +48,16 @@ Ember.Facebook = Ember.Mixin.create({
        if (response.authResponse) {
           IQ.set('session', FB.getAuthResponse().accessToken);
 
-          var user = null;
-
           FB.api('/me', function(response) {
-            this.user = response;
+            var x = IQ.User.createRecord({
+              userID: user.id,
+              username: user.username,
+              firstName: user.first_name,
+              lastName: user.last_name
+            });
+            
+            IQ.set('session', x);
           });
-
-          data = IQ.User.createRecord({
-            userID: user.id,
-            username: user.username,
-            firstName: user.first_name,
-            lastName: user.last_name
-          });
-
-          IQ.set('session', data);
 
           console.log('Welcome!  Fetching your information.... ');
        } else {
