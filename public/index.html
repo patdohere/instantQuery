@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <title>instantQuery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Le Cascading Style Sheets -->
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
 </head>
 <body>
   <script type="text/x-handlebars" data-template-name="application">
@@ -33,13 +38,17 @@
     {{#linkTo index}}Back to Index{{/linkTo}}
   </script>
 
+  <!-- Le JavaScript Libraries -->
   <script src="assets/jquery/jquery-1.9.1.js"></script>
   <script src="assets/handlebars/handlebars-1.0.0-rc.3.js"></script>
   <script src="assets/ember/ember-1.0.0-rc.1.js"></script>
   <script src="assets/ember/ember-data-r11.js"></script>
 
-
+  <!-- Le Ember Application -->
   <script src="js/app.js"></script>
-  
+  <script src="js/router.js"></script>
+  <script src="js/controllers/controllers.js"></script>
+  <script src="js/models/models.js"></script>
+  <script src="js/views/views.js"></script>
 </body>
 </html>
