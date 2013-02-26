@@ -13,21 +13,28 @@
     {{view IQ.NavBarView}}
     <div class="container">
       <div>
+        {{ controller }}
+        {{ question.humanDate }}
+      </div>
+      <div>
         {{outlet}}
       </div>
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
+    <p>index template {{ controller }}</p>
   </script>
 
   <script type="text/x-handlebars" data-template-name="rooms">
     <div class="row">
+    <p>rooms template {{ controller }}</p>
         {{ outlet }}
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="rooms/index">
+    <p>rooms/index template {{ controller }}</p>
     <h2>Rooms</h2>
     <table class="table table-hover">
       <thead>
@@ -44,7 +51,7 @@
         <tr>
           <td> {{ room.id }} </td>
           <td> {{ room.title }} </td>
-          <td> {{ room.questions.length }} </td>
+          <td> Blank </td>
           <td> Blank </td>
           <td>
             {{#linkTo 'room' room}}Join Room{{/linkTo}}
@@ -56,54 +63,61 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="rooms/create">
+    <p>rooms/create template {{ controller }} </p>
     {{view IQ.RoomCreateView}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="room">
+    <p>room template {{ controller }}</p>
     <h2>{{ title }}</h2>
+    {{#if hasQuestions}}
       <div class="container-fluid">
         <div class = "row-fluid">
-
-          <div class = "span4">
-            <button class="btn">{{#linkTo 'room.create' content}}Create a Question{{/linkTo}}</button>
-            {{#if hasQuestions}}
-              {{#each question in questions}}
-              <div class="media">
-                <div class="pull-left">
+          <div class = "span6">
+            {{ controller }}
+            {{ question.humanDate }}
+            <p>Title of Question?</p>
+            <button class="btn">{{#linkTo 'room.create'}}Create a Question{{/linkTo}}</button>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Question</th>
+                  <th>Date</th>
+                  <th>Vote Count</th>
+                  <th>Join</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each question in questions}}
+                <tr>
+                  <td> {{ question.id }} </td>
+                  <td> {{ question.title }} </td>
+                  <td> {{ question.humanDate }} </td>
+                  <td> {{ question.voteCount }} </td>
+                  <i class="icon-thumbs-up"></i>
+                  <i class="icon-thumbs-down"></i>
                   <img class="media-object" src="http://placekitten.com/g/64/64">
-                  <span class = "badge badge-info"> {{ question.voteCount }} </span>
-                </div>
-                <div class = "media-body">
-                  <div class = "well well-small">
-                    {{ question.title }}
-                    <br> 
-                    {{ question.humanDate }}
-                    <br>
+                  <td>
                     {{#linkTo 'question' question}}View Question{{/linkTo}}
-                  </div>
-                </div>
-              </div>
-              {{/each}}
-            {{else}}
-            <h3>There are no questions to display</h3>
-            {{/if}}
-          </div>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+    {{else}}
+      <h3>There are no questions to display</h3>
+    {{/if}}
 
-          <div class="span7">
-            <div class="pull-left">
-              {{ outlet }}
-            </div>
-          </div>
-
-        </div>
-      </div>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="room/index">
     {{ outlet }}
+          </div>
+          <div class="span6">
+            <p>Welcome to instantQuery</p>
+          </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="room/create">
+    <p>questions/create template {{ controller }} </p>
     {{view IQ.QuestionCreateView}}
   </script>
 
@@ -111,30 +125,7 @@
     <p>question template {{ controller }}</p>
     <h2>{{ id }} {{ title }}</h2>
     <h2>{{ voteCount }} {{ humanDate }}</h2>
-    <p>{{ content.content }}</p>
-    <button class="btn">{{#linkTo 'answers.create' content}}Reply to question{{/linkTo}}</button>
-
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Vote Count</th>
-          <th>Date</th>
-          <th>Content</th>
-        </tr>
-      </thead>
-      <tbody>
-      {{#each answer in answers}}
-        <tr>
-          <td> {{ answer.id }} </td>
-          <td> {{ answer.humanDate }} </td>
-          <td> {{ answer.voteCount }} </td>
-          <td> {{ answer.content }} </td>
-        </tr>
-      {{/each}}
-      </tbody>
-    </table>
-    {{ outlet }}
+    <p>{{ content }}</p>
   </script>
 
   <script type="text/x-handlebars" data-template-name="answers">
