@@ -23,11 +23,41 @@
   <script type="text/x-handlebars" data-template-name="rooms">
     rooms template
     <h2 >Rooms</h2>
+<<<<<<< HEAD
     {{#each room in controller}}
       {{ room.title }}
       {{#linkTo 'room' room}}Room {{ room.id }}{{/linkTo}}
     {{/each}}
     {{outlet}}
+=======
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Room</th>
+          <th>Questions</th>
+          <th>Online</th>
+          <th>Join</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each room in controller}}
+        <tr>
+          <td> {{ room.id }} </td>
+          <td> {{ room.title }} </td>
+          <td> Blank </td>
+          <td> Blank </td>
+          <td>
+            {{#linkTo 'room' room}}Join Room{{/linkTo}}
+          </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+
+
+    {{ outlet }}
+>>>>>>> c4a4920eb60f6f3428f915282bc96556fb3b7ebb
   </script>
 
   <script type="text/x-handlebars" data-template-name="rooms/index">
@@ -43,6 +73,8 @@
   <script type="text/x-handlebars" data-template-name="room">
     room template
     {{ controller }}
+    {{ id }} {{ title }}
+
   </script>
 
   <script type="text/x-handlebars" data-template-name="questions">
@@ -94,6 +126,7 @@
   <script src="assets/ember/ember-1.0.0-rc.1.js"></script>
   <script src="assets/ember/ember-data-r11.js"></script>
 
+  <script src="assets/facebook/facebook.js"></script>  
 
   <!-- Le Ember Application -->
   <script src="js/app.js"></script>
