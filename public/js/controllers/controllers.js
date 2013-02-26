@@ -37,6 +37,8 @@ IQ.RoomController = Ember.ObjectController.extend({
 
 IQ.RoomCreateController = Ember.ObjectController.extend({
   needs: ['room'],
+  sortProperties: ['voteCount'],
+  sortAscending: false,
 
   createQuestion: function ( question ) {
     var x = this.get('controllers.room').get('model').get('questions').createRecord(question);
@@ -56,7 +58,16 @@ IQ.RoomCreateController = Ember.ObjectController.extend({
 // IQ.QuestionsCreateController = Ember.ObjectController.extend();
 
 IQ.QuestionController = Ember.ObjectController.extend({
+  needs: ['question'],
+  sortProperties: ['voteCount'],
+  sortAscending: false,
 
+  createAnswer: function ( answer ) {
+    var x = this.get('controllers.question').get('model').get('answers').createRecord(answer);
+    // this.get('controllers.question').get('store').commit();
+
+    return x.get('id');
+  }
 });
 
 /////////////////////////////////////////////
@@ -65,15 +76,21 @@ IQ.QuestionController = Ember.ObjectController.extend({
 /////////////////////////////////////////////
 
 IQ.AnswersController = Ember.ArrayController.extend({
-
+  needs: ['question'],
+  sortProperties: ['voteCount'],
+  sortAscending: false
 });
 
 IQ.AnswersIndexController = Ember.Controller.extend({
-
+  needs: ['question'],
+  sortProperties: ['voteCount'],
+  sortAscending: false
 });
 
 IQ.AnswersCreateController = Ember.ObjectController.extend({
   needs: ['question'],
+  sortProperties: ['voteCount'],
+  sortAscending: false,
 
   createAnswer: function ( answer ) {
     var x = this.get('controllers.question').get('model').get('answers').createRecord(answer);

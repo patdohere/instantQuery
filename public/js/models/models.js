@@ -104,7 +104,7 @@ IQ.Question.FIXTURES = [
   author: "Joseph Than",
   dateCreated: "2013-02-26T03:11:02.434Z",
   dateEdited: "2013-02-26T03:11:02.434Z",
-  voteCount: 9001,
+  voteCount: 901,
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Statue sic fugiendus divitias multa concludaturque sophocles minuendas, appetendi ostendit instituendarum arbitramur delectari. Accuratius ceterorum forte aequi disputata saxum perspicuum consulatu utinam. Sermo inimicus ulla tribus alienus incorruptis efficiat itaque vim. Esset exorsus, dialectica invitat inter impeditur offendimur. Copulationes appellat fugiamus copulationesque quale, iudicante, eiusdem multos reformidans illae difficiles, pater, adamare latinas dissident medium atomis depulsa monstruosi. Vituperata solum delapsa spatio quin conversa gravitate senserit cognosci cum. Videor dissident iudicium compluribus rebus.",
 
   answers: [1,5,9],
@@ -137,7 +137,7 @@ IQ.Question.FIXTURES = [
   author: "Ari Such",
   dateCreated: "2013-02-26T03:11:02.434Z",
   dateEdited: "2013-02-26T03:11:02.434Z",
-  voteCount: 9001,
+  voteCount: 900,
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Statue sic fugiendus divitias multa concludaturque sophocles minuendas, appetendi ostendit instituendarum arbitramur delectari. Accuratius ceterorum forte aequi disputata saxum perspicuum consulatu utinam. Sermo inimicus ulla tribus alienus incorruptis efficiat itaque vim. Esset exorsus, dialectica invitat inter impeditur offendimur. Copulationes appellat fugiamus copulationesque quale, iudicante, eiusdem multos reformidans illae difficiles, pater, adamare latinas dissident medium atomis depulsa monstruosi. Vituperata solum delapsa spatio quin conversa gravitate senserit cognosci cum. Videor dissident iudicium compluribus rebus.",
 
   answers: [4,8,12],
