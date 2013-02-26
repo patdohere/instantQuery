@@ -38,6 +38,12 @@ IQ.RoomsRoute = Ember.Route.extend({
   model: function(){
     return IQ.Room.find();
   }
+});
+
+IQ.RoomsIndexRoute = Ember.Route.extend({
+  model: function() {
+    return IQ.Room.find();
+  }
 })
 
 IQ.RoomCreateRoute = Ember.Route.extend({

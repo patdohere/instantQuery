@@ -11,120 +11,101 @@
 <body>
   <script type="text/x-handlebars" data-template-name="application">
     {{view IQ.NavBarView}}
-    <div>
+    <div class="container">
       {{outlet}}
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    index template
+    <p>index template {{ controller }}</p>
   </script>
 
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span2">
-      <!--Sidebar content-->
-    </div>
-    <div class="span10">
-      <!--Body content-->
-    </div>
-  </div>
-</div>
-
   <script type="text/x-handlebars" data-template-name="rooms">
-    rooms template
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-          <h2 >Rooms</h2>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Room</th>
-                <th>Questions</th>
-                <th>Online</th>
-                <th>Join</th>
-              </tr>
-            </thead>
-            <tbody>
-            {{#each room in controller}}
-              <tr>
-                <td> {{ room.id }} </td>
-                <td> {{ room.title }} </td>
-                <td> Blank </td>
-                <td> Blank </td>
-                <td>
-                  {{#linkTo 'room' room}}Join Room{{/linkTo}}
-                </td>
-              </tr>
-            {{/each}}
-            </tbody>
-          </table>
-
-
-            {{ outlet }}
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="rooms/index">
-            rooms/index template
-            {{ controller }}
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="rooms/create">
-            rooms/create template
-            {{view IQ.RoomCreateView}}
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="room">
-            room template
-            {{ controller }}
-            {{ id }} {{ title }}
-
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="questions">
-            questions template
-            <div>
-              {{ outlet }}
-            </div>
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="questions/index">
-            questions/index template
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="questions/create">
-            questions/create template
-            {{view IQ.QuestionCreateView}}
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="question">
-            question template
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="answers">
-            answers template
-            <div>
-              {{ outlet }}
-            </div>
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="answers/index">
-            answers/index template
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="answers/create">
-            answers/create template
-            {{view IQ.AnswerCreateView}}
-          </script>
-
-          <script type="text/x-handlebars" data-template-name="answer">
-            answer template
-          </script>
-        </div>
-      </div>
+    <div class="row">
+    <p>rooms template</p>
+        {{ outlet }}
     </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="rooms/index">
+    <p>rooms/index template {{ controller }}</p>
+    <h2 >Rooms</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Room</th>
+          <th>Questions</th>
+          <th>Online</th>
+          <th>Join</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each room in controller}}
+        <tr>
+          <td> {{ room.id }} </td>
+          <td> {{ room.title }} </td>
+          <td> Blank </td>
+          <td> Blank </td>
+          <td>
+            {{#linkTo 'room' room}}Join Room{{/linkTo}}
+          </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="rooms/create">
+    rooms/create template
+    {{view IQ.RoomCreateView}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="room">
+    room template
+    {{ controller }}
+    {{ id }} {{ title }}
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="questions">
+    questions template
+    <div>
+      {{ outlet }}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="questions/index">
+    questions/index template
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="questions/create">
+    questions/create template
+    {{view IQ.QuestionCreateView}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="question">
+    question template
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="answers">
+    answers template
+    <div>
+      {{ outlet }}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="answers/index">
+    answers/index template
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="answers/create">
+    answers/create template
+    {{view IQ.AnswerCreateView}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="answer">
+    answer template
   </script>
 
 

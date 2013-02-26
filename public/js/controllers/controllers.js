@@ -10,7 +10,7 @@ IQ.ApplicationController = Ember.Controller.extend({
 IQ.RoomsController = Ember.ArrayController.extend({})
   
 
-IQ.RoomsIndexController = Ember.Controller.extend({
+IQ.RoomsIndexController = Ember.ArrayController.extend({
 
 });
 
