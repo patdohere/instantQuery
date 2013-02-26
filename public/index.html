@@ -32,7 +32,6 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>#</th>
           <th>Room</th>
           <th>Questions</th>
           <th>Online</th>
@@ -42,7 +41,6 @@
       <tbody>
       {{#each room in controller}}
         <tr>
-          <td> {{ room.id }} </td>
           <td> {{ room.title }} </td>
           <td> {{ room.questions.length }} </td>
           <td> 10 </td>
@@ -109,7 +107,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="question">
-    <h2>{{ id }} {{ title }}</h2>
+    <h2>{{ title }}</h2>
     <h2>{{ voteCount }} {{ humanDate }}</h2>
     <p>{{ content.content }}</p>
 
@@ -117,16 +115,16 @@
       <thead>
         <tr>
           <th>Vote Count</th>
-          <th>Date</th>
           <th>Content</th>
+          <th>Date</th>
         </tr>
       </thead>
       <tbody>
       {{#each answer in answers}}
         <tr>
           <td> {{ answer.voteCount }} </td>
-          <td> {{ answer.humanDate }} </td>
           <td> {{ answer.content }} </td>
+          <td> {{ answer.humanDate }} </td>
         </tr>
       {{/each}}
       </tbody>
