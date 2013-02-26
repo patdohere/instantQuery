@@ -91,7 +91,7 @@ IQ.RoomCreateView = Ember.View.extend({
   template: Ember.Handlebars.compile([
     '<form>',
       '<fieldset>',
-        '<legend>Create Room</legend>',
+        '<legend>Create a Room</legend>',
         '<label>Room Title</label>',
         '{{view Ember.TextField placeholder="title" valueBinding="view.title"}}',
         '<span class="help-block">Please use appropriate titles</span>',
