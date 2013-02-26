@@ -95,7 +95,7 @@ IQ.RoomCreateView = Ember.View.extend({
         '<label>Room Title</label>',
         '{{view Ember.TextField placeholder="Title" valueBinding="view.title"}}',
         '<span class="help-block">Please use appropriate titles</span>',
-        '<button class=\'btn\' {{action createRoom content target="view"}}>Submit</button>',
+        '<button class=\'btn btn-primary\' {{action createRoom content target="view"}}>Submit</button>',
       '</fieldset>',
     '</form>'
   ].join('\n')),
@@ -125,7 +125,7 @@ IQ.QuestionCreateView = Ember.View.extend({
         '<label>Question Content</label>',
         '{{view Ember.TextArea placeholder="Question" valueBinding="view.content"}}',
         '<span class="help-block"></span>',
-        '<button class=\'btn\' {{action createQuestion this target="view"}}>Submit</button>',
+        '<button class=\'btn btn-primary\' {{action createQuestion this target="view"}}>Submit</button>',
       '</fieldset>',
     '</form>'
   ].join('\n')),
@@ -159,7 +159,7 @@ IQ.AnswerCreateView = Ember.View.extend({
         '<label>Answer Content</label>',
         '{{view Ember.TextArea placeholder="Response" valueBinding="view.content"}}',
         '<span class="help-block"></span>',
-        '<button class=\'btn\' {{action createAnswer this target="view"}}>Submit</button>',
+        '<button class=\'btn btn-primary\' {{action createAnswer this target="view"}}>Submit</button>',
       '</fieldset>',
     '</form>'
   ].join('\n')),
