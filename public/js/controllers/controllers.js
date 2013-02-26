@@ -19,7 +19,15 @@ IQ.RoomsCreateController = Ember.ObjectController.extend({
 });
 
 IQ.RoomController = Ember.ObjectController.extend({
+  hasQuestions: function() {
+    var questions = this.get('content').get('questions');
 
+    if (questions.get('length') <= 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }.property('content')
 });
 
 /////////////////////////////////////////////

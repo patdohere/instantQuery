@@ -34,6 +34,14 @@ IQ.Question = DS.Model.extend({
   voteCount: DS.attr('number'),
   content: DS.attr('string'),
 
+  humanDate: function() {
+    var data = new Date(this.get('dateCreated'));
+    var date = data.toLocaleDateString();
+    var time = data.toLocaleTimeString();
+
+    return date + ' ' + time;
+  }.property('dateCreated'),
+
   answers: DS.hasMany('IQ.Answer'),
   room: DS.belongsTo('IQ.Room')
 });

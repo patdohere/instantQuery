@@ -64,8 +64,36 @@
   <script type="text/x-handlebars" data-template-name="room">
     room template
     {{ controller }}
-    {{ id }} {{ title }}
+    <h2>{{ title }}</h2>
+    {{#if hasQuestions}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Question</th>
+          <th>Date</th>
+          <th>VoteCount</th>
+          <th>Join</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each questions}}
+          <tr>
+            <td> {{ id }} </td>
+            <td> {{ title }} </td>
+            <td> {{ humanDate }} </td>
+            <td> {{ voteCount }} </td>
+            <td>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+      <h3>There are no questions to display</h3>
+    {{/if}}
 
+    {{ outlet }}
   </script>
 
   <script type="text/x-handlebars" data-template-name="questions">
