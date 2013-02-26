@@ -17,7 +17,7 @@ IQ.RoomsIndexController = Ember.ArrayController.extend({
 IQ.RoomsCreateController = Ember.ObjectController.extend({
   createRoom: function( room ) {
     var x = IQ.Room.createRecord(room);
-    this.get('store').commit();
+    // this.get('store').commit();
 
     return x.get('id');
   }
@@ -36,9 +36,11 @@ IQ.RoomController = Ember.ObjectController.extend({
 });
 
 IQ.RoomCreateController = Ember.ObjectController.extend({
+  needs: ['room'],
+
   createQuestion: function ( question ) {
-    var x = IQ.Question.createRecord(question);
-    this.get('store').commit();
+    var x = this.get('controllers.room').get('model').get('questions').createRecord(question);
+    // this.get('store').commit();
 
     return x.get('id');
   }

@@ -109,7 +109,7 @@ IQ.RoomCreateView = Ember.View.extend({
       title: this.get('title')
     });
 
-    IQ.Router.router.handleURL('/rooms/' + id);
+    IQ.Router.router.handleURL('/rooms/');
   }
 });
 
@@ -135,17 +135,15 @@ IQ.QuestionCreateView = Ember.View.extend({
 
     var roomID = this.get('parentView').get('parentView').get('controller').get('content').get('id');
 
-    room = IQ.Room.find('roomID');
 
     var id = this.get('controller').createQuestion({
       title: this.get('title'),
       content: this.get('content'),
-      room: room
+      dateCreated: new Date().toJSON(),
+      voteCount: 0
     });
 
-    var route = '/rooms/' + roomID + '/' + id;
-
-    debugger;
+    var route = '/rooms/' + roomID;
 
     IQ.Router.router.handleURL(route);
   }
