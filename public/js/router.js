@@ -1,53 +1,109 @@
 IQ.Router.map(function() {
-  this.resource('questions', function() {
-    this.resource('question', {path:':question_id'}, function() {
-      this.resource('answers', function() {
-        this.resource('answer', {path:':answer_id'}, function() {
+  this.resource('rooms', function() {
+    this.route('create', {path:'create'});
+    this.resource('room', {path:'/:room_id'}, function() {
+      
+      this.resource('questions', function() {
+
+        this.route('create', {path:'create'});
+        this.resource('question', {path:'/:question_id'}, function() {
+          this.resource('answers', function() {
+
+            this.route('create', {path:'create'});
+            this.resource('answer', {path:'/:answer_id'}, function() {
+            });
+          });
         });
       });
     });
   });
 });
 
+/////////////////////////////////////////////
+// Application Routes
+// main, index
+/////////////////////////////////////////////
+
 IQ.ApplicationRoute = Ember.Route.extend({
 
 });
 
 IQ.IndexRoute = Ember.Route.extend({
-
-});
-
-IQ.Rooms = Ember.Route.extend({
-  model: function() {
-    return IQ.Room.find();
+  redirect: function() {
+    this.transitionTo('rooms');
   }
 });
 
-IQ.Room = Ember.Route.extend({
+/////////////////////////////////////////////
+// Rooms Routes
+// main, index, create, room_id
+/////////////////////////////////////////////
+
+IQ.RoomsRoute = Ember.Route.extend({
+  // model: function() {
+  //   return IQ.Room.find();
+  // }
+});
+
+IQ.RoomsRoute = Ember.Route.extend({
+  
+})
+
+IQ.RoomCreateRoute = Ember.Route.extend({
+
+})
+
+IQ.RoomRoute = Ember.Route.extend({
   model: function(params) {
     return IQ.Room.find(params.room_id);
   }
 });
 
-IQ.Questions = Ember.Route.extend({
+/////////////////////////////////////////////
+// Questions Routes
+// main, index, create, question_id
+/////////////////////////////////////////////
+
+IQ.QuestionsRoute = Ember.Route.extend({
   model: function() {
     return IQ.Question.find();
   }
 });
 
-IQ.Question = Ember.Route.extend({
+IQ.QuestionsIndexRoute = Ember.Route.extend({
+
+});
+
+IQ.QuestionCreateRoute = Ember.Route.extend({
+
+})
+
+IQ.QuestionRoute = Ember.Route.extend({
   model: function(params) {
     return IQ.Room.find(params.question_id);
   }
 });
 
-IQ.Answers = Ember.Route.extend({
+/////////////////////////////////////////////
+// Answers Routes
+// main, index, create, answer_id
+/////////////////////////////////////////////
+
+IQ.AnswersRoute = Ember.Route.extend({
   model: function() {
     return IQ.Answer.find();
   }
 });
 
-IQ.Answer = Ember.Route.extend({
+IQ.AnswersIndexRoute = Ember.Route.extend({
+
+});
+
+IQ.AnswerCreateRoute = Ember.Route.extend({
+
+})
+
+IQ.AnswerRoute = Ember.Route.extend({
   model: function(params) {
     return IQ.Room.find(params.answer_id);
   }

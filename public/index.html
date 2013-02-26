@@ -6,11 +6,11 @@
 
   <!-- Le Cascading Style Sheets -->
   <link rel="stylesheet" type="text/css" href="css/app.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap-responsive.min.css">
 </head>
 <body>
   <script type="text/x-handlebars" data-template-name="application">
-    <h1>Application Template</h1>
+    {{view IQ.NavBarView}}
     <div>
       {{outlet}}
     </div>
@@ -22,6 +22,19 @@
 
   <script type="text/x-handlebars" data-template-name="rooms">
     rooms template
+    <div>
+      {{ outlet }}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="rooms/index">
+    rooms/index template
+    {{ outlet }}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="rooms/create">
+    rooms/create template
+    {{view IQ.RoomCreateView}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="room">
@@ -30,6 +43,19 @@
 
   <script type="text/x-handlebars" data-template-name="questions">
     questions template
+    <div>
+      {{ outlet }}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="questions/index">
+    questions/index template
+    {{ outlet }}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="questions/create">
+    questions/create template
+    {{view IQ.QuestionCreateView}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="question">
@@ -38,6 +64,19 @@
 
   <script type="text/x-handlebars" data-template-name="answers">
     answers template
+    <div>
+      {{ outlet }}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="answers/index">
+    answers/index template
+    {{ outlet }}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="answers/create">
+    answers/create template
+    {{view IQ.AnswerCreateView}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="answer">
@@ -47,9 +86,12 @@
 
   <!-- Le JavaScript Libraries -->
   <script src="assets/jquery/jquery-1.9.1.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
   <script src="assets/handlebars/handlebars-1.0.0-rc.3.js"></script>
   <script src="assets/ember/ember-1.0.0-rc.1.js"></script>
   <script src="assets/ember/ember-data-r11.js"></script>
+
 
   <!-- Le Ember Application -->
   <script src="js/app.js"></script>
