@@ -102,8 +102,16 @@ IQ.RoomCreateView = Ember.View.extend({
 
   // this event is invoked in the {{action createRoom}}
   createRoom: function(event) {
-    var roomTitle = IQ.Room.createRecord({title: this.get('title')});
-    this.get('controller.store').commit();
+    // input validation
+
+    // send data to store and store id of created item
+    var x = this.get('controller').createRoom(
+      this.get('title')
+    )
+
+    var route = '/rooms/' + x;
+
+    IQ.Router.router.handleURL(route);
   }
 });
 

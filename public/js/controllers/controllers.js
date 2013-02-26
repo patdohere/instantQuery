@@ -15,7 +15,12 @@ IQ.RoomsIndexController = Ember.ArrayController.extend({
 });
 
 IQ.RoomsCreateController = Ember.ObjectController.extend({
+  createRoom: function( title ) {
+    var x = IQ.Room.createRecord({title: title});
+    this.get('store').commit();
 
+    return x.get('id');
+  }
 });
 
 IQ.RoomController = Ember.ObjectController.extend({

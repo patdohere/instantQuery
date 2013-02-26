@@ -57,7 +57,7 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="rooms/create">
-    rooms/create template
+    <p>rooms/create template {{ controller }} </p>
     {{view IQ.RoomCreateView}}
   </script>
 
@@ -98,32 +98,30 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="room/create">
-    questions/create template
+    <p>questions/create template {{ controller }} </p>
     {{view IQ.QuestionCreateView}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="question">
     <p>question template {{ controller }}</p>
-    {{ id }}
-    {{ title }}
-    {{ humanDate }}
-    {{ voteCount }}
-    {{ content }}
+    <h2>{{ id }} {{ title }}</h2>
+    <h2>{{ voteCount }} {{ humanDate }}</h2>
+    <p>{{ content }}</p>
   </script>
 
   <script type="text/x-handlebars" data-template-name="answers">
-    answers template
+    <p>answers template  {{ controller }} </p>
     <div>
       {{ outlet }}
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="answers/index">
-    answers/index template
+    <p>answers/index template  {{ controller }} </p>
   </script>
 
   <script type="text/x-handlebars" data-template-name="answers/create">
-    answers/create template
+    <p>answers/create template  {{ controller }} </p>
     {{view IQ.AnswerCreateView}}
   </script>
 
