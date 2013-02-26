@@ -22,7 +22,7 @@
 
   <script type="text/x-handlebars" data-template-name="rooms">
     <div class="row">
-    <p>rooms template</p>
+    <p>rooms template {{ controller }}</p>
         {{ outlet }}
     </div>
   </script>
@@ -62,10 +62,10 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="room">
-    room template
-    {{ controller }}
+    <p>room template {{ controller }}</p>
     <h2>{{ title }}</h2>
     {{#if hasQuestions}}
+    {{#linkTo 'room.create'}}Create Question{{/linkTo}}
     <table class="table">
       <thead>
         <tr>
@@ -77,13 +77,14 @@
         </tr>
       </thead>
       <tbody>
-        {{#each questions}}
+        {{#each question in questions}}
           <tr>
-            <td> {{ id }} </td>
-            <td> {{ title }} </td>
-            <td> {{ humanDate }} </td>
-            <td> {{ voteCount }} </td>
+            <td> {{ question.id }} </td>
+            <td> {{ question.title }} </td>
+            <td> {{ question.humanDate }} </td>
+            <td> {{ question.voteCount }} </td>
             <td>
+              {{#linkTo 'question' question}}View Question{{/linkTo}}
             </td>
           </tr>
         {{/each}}
@@ -96,24 +97,18 @@
     {{ outlet }}
   </script>
 
-  <script type="text/x-handlebars" data-template-name="questions">
-    questions template
-    <div>
-      {{ outlet }}
-    </div>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="questions/index">
-    questions/index template
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="questions/create">
+  <script type="text/x-handlebars" data-template-name="room/create">
     questions/create template
     {{view IQ.QuestionCreateView}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="question">
-    question template
+    <p>question template {{ controller }}</p>
+    {{ id }}
+    {{ title }}
+    {{ humanDate }}
+    {{ voteCount }}
+    {{ content }}
   </script>
 
   <script type="text/x-handlebars" data-template-name="answers">

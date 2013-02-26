@@ -125,8 +125,8 @@ IQ.QuestionCreateView = Ember.View.extend({
   ].join('\n')),
 
   // this event is invoked in the {{action createQuestion}}
-  createQuestion: function(event) {
-        var question = IQ.Question.createRecord({title: this.get('content')});
+  createQuestion: function(event) {    
+    var question = IQ.Question.createRecord({title: this.get('content')});
   }
 });
 
@@ -147,6 +147,6 @@ IQ.AnswerCreateView = Ember.View.extend({
 
   // this event is invoked in the {{action createAnswer}}
   createAnswer: function(event) {
-     var anwer = IQ.Amswer.createRecord({title: this.get('content')});
+     var answer = IQ.Amswer.createRecord({title: this.get('content')});
   }
 });

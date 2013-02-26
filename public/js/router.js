@@ -3,7 +3,7 @@ IQ.Router.map(function() {
     this.route('create', {path:'create'});
     this.resource('room', {path:'/:room_id'}, function() {
       
-      this.resource('questions', function() {
+      // this.resource('questions', function() {
 
         this.route('create', {path:'create'});
         this.resource('question', {path:'/:question_id'}, function() {
@@ -14,7 +14,7 @@ IQ.Router.map(function() {
             });
           });
         });
-      });
+      // });
     });
   });
 });
@@ -61,15 +61,21 @@ IQ.RoomRoute = Ember.Route.extend({
 // main, index, create, question_id
 /////////////////////////////////////////////
 
-IQ.QuestionsRoute = Ember.Route.extend({
-  model: function() {
-    return IQ.Question.find();
-  }
-});
+// IQ.QuestionsRoute = Ember.Route.extend({
+//   redirect: function() {
+//     this.transitionTo('questions.index')
+//   },
 
-IQ.QuestionsIndexRoute = Ember.Route.extend({
+//   model: function() {
+//     return IQ.Question.find();
+//   }
+// });
 
-});
+// IQ.QuestionsIndexRoute = Ember.Route.extend({
+//   model: function() {
+//     return IQ.Question.find();
+//   }
+// });
 
 IQ.QuestionCreateRoute = Ember.Route.extend({
 

@@ -35,17 +35,9 @@ IQ.RoomController = Ember.ObjectController.extend({
 // index, create, question_id
 /////////////////////////////////////////////
 
-IQ.QuestionsController = Ember.ArrayController.extend({
-
-});
-
-IQ.QuestionsIndexController = Ember.Controller.extend({
-
-});
-
-IQ.QuestionsCreateController = Ember.ObjectController.extend({
-
-});
+// IQ.QuestionsController = Ember.ArrayController.extend();
+// IQ.QuestionsIndexController = Ember.Controller.extend();
+// IQ.QuestionsCreateController = Ember.ObjectController.extend();
 
 IQ.QuestionController = Ember.ObjectController.extend({
 
