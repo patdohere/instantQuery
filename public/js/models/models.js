@@ -3,6 +3,15 @@ IQ.Store = DS.Store.extend({
   adapter: 'DS.FixtureAdapter'
 });
 
+IQ.User = DS.Model.extend({
+  fb: DS.attr('number'),
+  name: DS.attr('string'),
+
+  imageURL: DS.attr('string'),
+
+  quesitons: DS.hasMany('IQ.Question')
+})
+
 IQ.Room = DS.Model.extend({
   title: DS.attr('string'),
 
@@ -29,6 +38,18 @@ IQ.Answer = DS.Model.extend({
 
   question: DS.belongsTo('IQ.Question')
 });
+
+IQ.User.FIXTURES = [
+{
+  fb: 123,
+  name: "Patrick Do",
+  imageURL: "http://placekitten.com/32/32"
+}, {
+  fb: 456,
+  name: "Joseph Than",
+  imageURL: "http://placekitten.com/g/32/32"
+}
+]
 
 IQ.Room.FIXTURES = [
 {
