@@ -1,0 +1,15 @@
+{
+  "name": "projectIrvine",
+  "description": "ICS Student Council WebJam 2013",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "mongodb": "1.2.x",
+    "socket.io": "0.9.x"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.2.x"
+  }
+}
