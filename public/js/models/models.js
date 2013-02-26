@@ -4,10 +4,18 @@ IQ.Store = DS.Store.extend({
 });
 
 IQ.User = DS.Model.extend({
-  fb: DS.attr('number'),
-  name: DS.attr('string'),
+  userID: DS.attr('number'),
+  username: DS.attr('string'),
+  firstName: DS.attr('string'),
+  lastName: DS.attr('string'),
+  
+  name: function() {
+    return this.get('firstName') + ' ' + this.get('lastName');
+  }.property('firstName', 'lastName'),
 
-  imageURL: DS.attr('string'),
+  imgURL: function() {
+    return 'https://graph.facebook.com/'+ this.get('username') +'picture';
+  }.property('username'),
 
   quesitons: DS.hasMany('IQ.Question')
 })
