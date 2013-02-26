@@ -1,6 +1,6 @@
 IQ.Store = DS.Store.extend({
   revision: 11,
-  adapter: 'DS.FixtureAdapter'
+  adapter: 'DS.RESTAdapter'
 });
 
 IQ.User = DS.Model.extend({
@@ -18,7 +18,13 @@ IQ.User = DS.Model.extend({
   }.property('username'),
 
   quesitons: DS.hasMany('IQ.Question')
-})
+});
+
+
+
+/////////////////////////////////////////////
+// Models
+/////////////////////////////////////////////
 
 IQ.Room = DS.Model.extend({
   title: DS.attr('string'),
@@ -64,8 +70,11 @@ IQ.User.FIXTURES = [
   fb: 456,
   name: "Joseph Than",
   imageURL: "http://placekitten.com/g/32/32"
-}
-]
+}];
+
+/////////////////////////////////////////////
+// Fixtures
+/////////////////////////////////////////////
 
 IQ.Room.FIXTURES = [
 {
@@ -78,8 +87,7 @@ IQ.Room.FIXTURES = [
   title: "ICS 31 : Intro to Programming",
 
   questions: [2, 4]
-}
-];
+}];
 
 IQ.Question.FIXTURES = [
 {
@@ -126,8 +134,7 @@ IQ.Question.FIXTURES = [
 
   answers: [4,8,12],
   room: 2
-}
-];
+}];
 
 IQ.Answer.FIXTURES = [
 {

@@ -75,7 +75,7 @@ IQ.NavBarView = Ember.ContainerView.extend({
                 '<li {{action login target="IQ"}}><a>Login</a></li>',
               '{{/if}}',
             '</ul>',
-        '</div><!-- /.nav-collapse -->',
+        '</div><!-- /.nav-collapse -->'
       ].join('\n'))
     })
   })
@@ -103,6 +103,7 @@ IQ.RoomCreateView = Ember.View.extend({
   // this event is invoked in the {{action createRoom}}
   createRoom: function(event) {
     var roomTitle = IQ.Room.createRecord({title: this.get('title')});
+    this.get('controller.store').commit();
   }
 });
 
