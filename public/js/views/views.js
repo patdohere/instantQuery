@@ -89,7 +89,7 @@ IQ.RoomCreateView = Ember.View.extend({
 
   // this event is invoked in the {{action createRoom}}
   createRoom: function(event) {
-    debugger;
+    var roomTitle = IQ.Room.createRecord({title: this.get('title')});
   }
 });
 
@@ -112,7 +112,7 @@ IQ.QuestionCreateView = Ember.View.extend({
 
   // this event is invoked in the {{action createQuestion}}
   createQuestion: function(event) {
-    debugger;
+        var question = IQ.Question.createRecord({title: this.get('content')});
   }
 });
 
@@ -133,6 +133,6 @@ IQ.AnswerCreateView = Ember.View.extend({
 
   // this event is invoked in the {{action createAnswer}}
   createAnswer: function(event) {
-    debugger;
+     var anwer = IQ.Amswer.createRecord({title: this.get('content')});
   }
 });

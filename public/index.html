@@ -25,9 +25,9 @@
     <h2 >Rooms</h2>
     {{#each room in controller}}
       {{ room.title }}
+      {{#linkTo 'room' room}}Room {{ room.id }}{{/linkTo}}
     {{/each}}
-
-    {{ outlet }}
+    {{outlet}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="rooms/index">
