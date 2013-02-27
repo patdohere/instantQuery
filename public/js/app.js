@@ -49,12 +49,12 @@ Ember.Facebook = Ember.Mixin.create({
           IQ.set('session', FB.getAuthResponse().accessToken);
 
           FB.api('/me', function(response) {
-            var x = IQ.User.createRecord({
-              userID: user.id,
-              username: user.username,
-              firstName: user.first_name,
-              lastName: user.last_name
-            });
+            IQ.set('FBuserID', response.id);
+            IQ.set('FBusername', response.username);
+            IQ.set('FBfirstName', response.first_name);
+            IQ.set('FBlastName', response.last_name);
+
+            var x = 'https://graph.facebook.com/'+ response.id +'picture';
             
             IQ.set('session', x);
           });
