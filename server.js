@@ -1,7 +1,8 @@
 var express = require('express'),
     path = require('path'),
     http = require('http'),
-    rooms = require('./routes/room');
+    rooms = require('./routes/room'),
+    questions = require('./routes/questions');
 
 var app = express();
 
@@ -21,3 +22,9 @@ app.post('/rooms', rooms.addRoom);
 app.get('/rooms/:id', rooms.findById);
 app.put('/rooms/:id', rooms.updateRoom);
 app.delete('/rooms/:id', rooms.deleteRoom);
+
+app.get('/rooms/:id/questions', rooms.findAll);
+app.post('/rooms/:id/questions', rooms.addRoom);
+app.get('/rooms/:id/questions/:id', rooms.findById);
+app.put('/rooms/:id/questions/:id', rooms.updateRoom);
+app.delete('/rooms/:id/questions/:id', rooms.deleteRoom);

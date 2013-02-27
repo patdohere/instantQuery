@@ -1,6 +1,12 @@
 IQ.Store = DS.Store.extend({
   revision: 11,
-  adapter: 'DS.FixtureAdapter'
+  adapter: 'DS.RESTAdapter'
+});
+
+DS.RESTAdapter.map('IQ.Room', {
+  rooms: {
+    embedded: 'load'
+  }
 });
 
 IQ.User = DS.Model.extend({
@@ -27,12 +33,14 @@ IQ.User = DS.Model.extend({
 /////////////////////////////////////////////
 
 IQ.Room = DS.Model.extend({
+  primaryKey: "_id",
   title: DS.attr('string'),
 
   questions: DS.hasMany('IQ.Question')
 });
 
 IQ.Question = DS.Model.extend({
+  primaryKey: "_id",
   title: DS.attr('string'),
   author: DS.attr('string'),
   dateCreated: DS.attr('date'),
@@ -53,6 +61,7 @@ IQ.Question = DS.Model.extend({
 });
 
 IQ.Answer = DS.Model.extend({
+  primaryKey: "_id",
   author: DS.attr('string'),
   dateCreated: DS.attr('date'),
   voteCount: DS.attr('number'),

@@ -25,7 +25,7 @@ exports.findById = function(req, res) {
   console.log('Retrieving room: ' + id);
   db.collection('rooms', function(err, collection) {
     collection.findOne({'_id': new BSON.ObjectID(id)}, {_id:0}, function(err, item) {
-      res.send(item);
+      res.send({rooms:item});
     });
   });
 };
@@ -33,7 +33,7 @@ exports.findById = function(req, res) {
 exports.findAll = function(req, res) {
   db.collection('rooms', function(err, collection) {
     collection.find({}, {_id:0}).toArray(function(err, items) {
-      res.send(items);
+      res.send({rooms:items});
     });
   });
 };
@@ -52,7 +52,7 @@ exports.addRoom = function(req, res) {
         delete result[0]._id;
         res.send(result[0]);
         result[0].room.id = temp;
-        collection.update({room:{title: check}}, result[0], function(err, panda) {
+        collection.update({room:{title: check}}, result[0].room, {upsert:true}, function(err, panda) {
           console.log(panda + " : Success");
         });
       }
@@ -67,7 +67,7 @@ exports.updateRoom = function(req, res) {
   console.log('Updating room: ' + roomID);
   db.collection('rooms', function(err, collection) {
     collection.findOne({_id:new BSON.ObjectID(roomID)}, function(err, oldRoom) {
-     // newRoom.room.questions = oldRoom.room.questions;
+     newRoom.room.questions_id = oldRoom.room.questions_id;
      newRoom.room.id = oldRoom.room.id;
      collection.update({_id:new BSON.ObjectID(roomID)}, newRoom, {safe:true}, function(err, result) {
       if (err) {
@@ -77,7 +77,7 @@ exports.updateRoom = function(req, res) {
         console.log('' + result + ' document(s) updated');
         res.send(newRoom);
       }
-    }); 
+    });
    });
   });
 };
@@ -94,8 +94,8 @@ exports.deleteRoom = function(req, res) {
         res.send(req.body);
       }
     });
-        // db.collection('question', function(err, collection) {
-        //     collection.remove({'room':id});
-        // });
-});
+    db.collection('questions', function(err, collection) {
+      collection.remove({'room_id':id});
+    });
+  });
 };
