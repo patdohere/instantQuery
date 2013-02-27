@@ -54,7 +54,7 @@ Ember.Facebook = Ember.Mixin.create({
             IQ.set('FBfirstName', response.first_name);
             IQ.set('FBlastName', response.last_name);
 
-            var x = 'https://graph.facebook.com/'+ response.id +'/picture?type=small"';
+            var x = 'https://graph.facebook.com/'+ response.id +'/picture?type=small';
             
             IQ.set('session', x);
           });
