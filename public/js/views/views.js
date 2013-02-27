@@ -66,7 +66,7 @@ IQ.NavBarView = Ember.ContainerView.extend({
               '{{#if IQ.session}}',
                 '<li class="dropdown">',
                   '<a class="dropdown-toggle" data-toggle="dropdown">',
-                      '<img <img {{bindAttr src="logoUrl"}} width="18" height="18">',
+                      '<img {{bindAttr src="IQ.session"}} width="18" height="18">',
                       '{{IQ.FBfirstname}} {{IQ.FBlastname}}',
                   '</a>',
                   '<li {{action logout target="IQ"}}><a>Logout</a></li>',
