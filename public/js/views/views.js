@@ -89,15 +89,17 @@ IQ.RoomCreateView = Ember.View.extend({
   tagName: 'div',
   classNames: [],
   template: Ember.Handlebars.compile([
-    '<form>',
-      '<fieldset>',
-        '<legend>Create a Room</legend>',
-        '<label>Room Title</label>',
-        '{{view Ember.TextField placeholder="Title" valueBinding="view.title"}}',
-        '<span class="help-block">Please use appropriate titles</span>',
-        '<button class=\'btn btn-primary\' {{action createRoom content target="view"}}>Submit</button>',
-      '</fieldset>',
-    '</form>'
+    '{{#if IQ.session}}',
+      '<form>',
+        '<fieldset>',
+          '<legend>Create a Room</legend>',
+          '<label>Room Title</label>',
+          '{{view Ember.TextField placeholder="Title" valueBinding="view.title"}}',
+          '<span class="help-block">Please use appropriate titles</span>',
+          '<button class=\'btn btn-primary\' {{action createRoom content target="view"}}>Submit</button>',
+        '</fieldset>',
+      '</form>',
+    '{{/if}}'
   ].join('\n')),
 
   // this event is invoked in the {{action createRoom}}
@@ -149,19 +151,22 @@ IQ.QuestionCreateView = Ember.View.extend({
   }
 });
 
+
 IQ.AnswerCreateView = Ember.View.extend({
   tagName: 'div',
   classNams: [],
   template: Ember.Handlebars.compile([
-    '<form>',
-      '<fieldset>',
-        '<legend>Reply to {Question}</legend>',
-        '<label>Answer Content</label>',
-        '{{view Ember.TextArea placeholder="Response" valueBinding="view.content"}}',
-        '<span class="help-block"></span>',
-        '<button class=\'btn btn-primary\' {{action createAnswer this target="view"}}>Submit</button>',
-      '</fieldset>',
-    '</form>'
+    '{{#if IQ.session}}',
+      '<form>',
+        '<fieldset>',
+          '<legend>Reply to {Question}</legend>',
+          '<label>Answer Content</label>',
+          '{{view Ember.TextArea placeholder="Response" valueBinding="view.content"}}',
+          '<span class="help-block"></span>',
+          '<button class=\'btn btn-primary\' {{action createAnswer this target="view"}}>Submit</button>',
+        '</fieldset>',
+      '</form>',
+    '{{/if}}'
   ].join('\n')),
 
   // this event is invoked in the {{action createAnswer}}
@@ -176,3 +181,4 @@ IQ.AnswerCreateView = Ember.View.extend({
     });
   }
 });
+

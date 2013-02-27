@@ -63,7 +63,9 @@
         <div class = "row-fluid">
 
           <div class = "span4">
-            <button class="btn">{{#linkTo 'room.create' content}}Create a Question{{/linkTo}}</button>
+            {{#if IQ.session}}
+              <button class="btn">{{#linkTo 'room.create' content}}Create a Question{{/linkTo}}</button>
+            {{/if}}
             {{#if hasQuestions}}
               {{#each question in questions}}
               <div class="media">
